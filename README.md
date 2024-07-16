@@ -1,6 +1,6 @@
 # Token Adapter
 
-Support `ICRC1` `ICRC2` `EXT` `DIIP20`
+Support `ICRC1` `ICRC2` `EXT` `DIP20`
 
 ### Token interface
 

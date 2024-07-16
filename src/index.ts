@@ -1,9 +1,8 @@
 import { HttpAgent } from "@dfinity/agent";
-import { IToken } from "./types/IToken";
+import { ApproveInput, IToken, TransferInput } from "./types/IToken";
 import { Dip20Token } from "./dip20";
 import { ICRC1Token } from "./icrc1";
 import { ExtToken } from "./ext";
-import { DIP20 } from "./icp";
 import { Principal } from "@dfinity/principal";
 
 export type TokenStandard = "DIP20" | "ICRC1" | "EXT" | "ICRC2" | "ICP";
@@ -79,33 +78,11 @@ export class Token {
         return this.token.getLogo();
     }
 
-    public async approve(input: {
-        fee: [] | [bigint];
-        memo: [] | [Uint8Array | number[]];
-        from_subaccount: [] | [Uint8Array | number[]];
-        created_at_time: [] | [bigint];
-        amount: bigint;
-        expected_allowance: [] | [bigint];
-        expires_at: [] | [bigint];
-        spender: {
-            owner: Principal;
-            subaccount: [] | [Uint8Array | number[]];
-        };
-    }): Promise<bigint> {
+    public async approve(input: ApproveInput): Promise<bigint> {
         return this.token.approve(input);
     }
 
-    public async transfer(input: {
-        to: {
-            owner: Principal;
-            subaccount: [] | [Uint8Array | number[]];
-        };
-        amount: bigint;
-        fee: [bigint] | [];
-        memo: [Uint8Array | number[]] | [];
-        from_subaccount: [] | [Uint8Array | number[]];
-        created_at_time: [bigint] | [];
-    }): Promise<bigint> {
+    public async transfer(input: TransferInput): Promise<bigint> {
         return this.token.transfer(input);
     }
 

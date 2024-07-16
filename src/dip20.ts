@@ -48,8 +48,8 @@ export class Dip20Token implements IToken {
     throw new Error("Method not implemented.");
   }
 
-  getDecimals(): number {
-    return Math.log10(this.decimals);
+  async getDecimals(): Promise<number> {
+    return this.actor.decimals();
   }
   async balanceOf(address: string): Promise<number> {
     const balance = await this.actor.balanceOf(Principal.fromText(address));

@@ -48,8 +48,13 @@ export class ExtToken implements IToken {
     throw new Error("Method not implemented.");
   }
 
-  getDecimals(): number {
-    return Math.log10(this.decimals);
+  async getDecimals(): Promise<number> {
+    const metadata = await this.actor.metadata()
+    if ("ok" in metadata && "fungible" in metadata.ok) {
+      return metadata.ok.fungible.decimals;
+    } else {
+      throw new Error("getDecimals error occured");
+    }
   }
   async balanceOf(address: string): Promise<number> {
     const balance = await this.actor.balance({

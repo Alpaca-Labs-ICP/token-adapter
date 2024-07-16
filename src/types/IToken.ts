@@ -3,7 +3,7 @@ import { TokenActor } from "./TokenStandardActor";
 
 export interface IToken {
   actor: TokenActor;
-  getDecimals(): number;
+  getDecimals(): Promise<number>;
   balanceOf(
     address:
       | string

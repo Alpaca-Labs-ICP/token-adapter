@@ -79,8 +79,8 @@ export class ICRC1Token implements IToken {
     throw new Error("");
   }
 
-  getDecimals(): number {
-    return Math.log10(this.decimals);
+  async getDecimals(): Promise<number> {
+    return await this.actor.icrc1_decimals();
   }
   async balanceOf(
     address:

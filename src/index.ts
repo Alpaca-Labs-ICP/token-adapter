@@ -47,39 +47,39 @@ export class Token {
         }
     }
 
-    getDecimals(): number {
+    public async getDecimals(): Promise<number> {
         return this.token.getDecimals();
     }
 
-    balanceOf(address: string | { owner: Principal; subaccount: [] | [Uint8Array | number[]]; }): Promise<number> {
+    public async balanceOf(address: string | { owner: Principal; subaccount: [] | [Uint8Array | number[]]; }): Promise<number> {
         return this.token.balanceOf(address);
     }
 
-    name(): Promise<string> {
+    public async name(): Promise<string> {
         return this.token.name();
     }
 
-    symbol(): Promise<string> {
+    public async symbol(): Promise<string> {
         return this.token.symbol();
     }
 
-    totalSupply(): Promise<number> {
+    public async totalSupply(): Promise<number> {
         return this.token.totalSupply();
     }
 
-    getFee(): Promise<bigint> {
+    public async getFee(): Promise<bigint> {
         return this.token.getFee();
     }
 
-    getMetadata(): Promise<any> {
+    public async getMetadata(): Promise<any> {
         return this.token.getMetadata();
     }
 
-    getLogo(): Promise<string> {
+    public async getLogo(): Promise<string> {
         return this.token.getLogo();
     }
 
-    approve(input: {
+    public async approve(input: {
         fee: [] | [bigint];
         memo: [] | [Uint8Array | number[]];
         from_subaccount: [] | [Uint8Array | number[]];
@@ -95,7 +95,7 @@ export class Token {
         return this.token.approve(input);
     }
 
-    transfer(input: {
+    public async transfer(input: {
         to: {
             owner: Principal;
             subaccount: [] | [Uint8Array | number[]];

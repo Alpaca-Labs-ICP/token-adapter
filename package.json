@@ -1,5 +1,5 @@
 {
-  "name": "@alpaca/token-adapter",
+  "name": "@alpaca-icp/token-adapter",
   "version": "1.0.0",
   "description": "ICP token adapter",
   "main": "src/index.ts",
@@ -8,8 +8,14 @@
     "start": "node dist/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Alpaca icp"
+  },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alpaca-Labs-ICP/token-adapter"
+  },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "typescript": "^5.5.2"

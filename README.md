@@ -2,6 +2,8 @@
 
 Support `ICRC1` `ICRC2` `EXT` `DIP20`
 
+**Note** Approve method is not implemented for `EXT` and `DIP20`
+
 ### Token interface
 
 ```typescript

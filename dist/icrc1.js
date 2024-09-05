@@ -12,8 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ICRC1Token = void 0;
 const principal_1 = require("@dfinity/principal");
 const icp_1 = require("./icp");
+const safeParseJSON_1 = require("./utils/safeParseJSON");
 class ICRC1Token {
-    constructor({ canisterId, agent, }) {
+    constructor({ canisterId, agent }) {
         this.decimals = 1e8;
         this.actor = icp_1.ICRC1.createActor({
             agent,
@@ -36,7 +37,7 @@ class ICRC1Token {
                 return result.Ok;
             }
             else if ("Err" in result) {
-                throw new Error(JSON.stringify(result.Err));
+                throw new Error((0, safeParseJSON_1.safeParseJSON)(result.Err));
             }
             throw new Error("unknown error");
         });
@@ -55,7 +56,7 @@ class ICRC1Token {
                 return result.Ok;
             }
             else if ("Err" in result) {
-                throw new Error(JSON.stringify(result.Err));
+                throw new Error((0, safeParseJSON_1.safeParseJSON)(result.Err));
             }
             throw new Error("");
         });

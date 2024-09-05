@@ -4,18 +4,13 @@ import { ICRC1Actor } from "./types/TokenStandardActor";
 import { MetadataValue } from "./icp/icrc1";
 import { HttpAgent } from "@dfinity/agent";
 import { ICRC1 } from "./icp";
+import { safeParseJSON } from "./utils/safeParseJSON";
 
 export class ICRC1Token implements IToken {
   public readonly actor: ICRC1Actor;
   public readonly decimals: number = 1e8;
 
-  constructor({
-    canisterId,
-    agent,
-  }: {
-    canisterId: string;
-    agent: HttpAgent;
-  }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
     this.actor = ICRC1.createActor({
       agent,
       canisterId,
@@ -45,7 +40,7 @@ export class ICRC1Token implements IToken {
     if ("Ok" in result) {
       return result.Ok;
     } else if ("Err" in result) {
-      throw new Error(JSON.stringify(result.Err));
+      throw new Error(safeParseJSON(result.Err));
     }
 
     throw new Error("unknown error");
@@ -74,7 +69,7 @@ export class ICRC1Token implements IToken {
     if ("Ok" in result) {
       return result.Ok;
     } else if ("Err" in result) {
-      throw new Error(JSON.stringify(result.Err));
+      throw new Error(safeParseJSON(result.Err));
     }
     throw new Error("");
   }
@@ -86,9 +81,9 @@ export class ICRC1Token implements IToken {
     address:
       | string
       | {
-        owner: Principal;
-        subaccount: [Uint8Array | number[]] | [];
-      }
+          owner: Principal;
+          subaccount: [Uint8Array | number[]] | [];
+        }
   ): Promise<number> {
     let balance;
     if (typeof address === "string") {

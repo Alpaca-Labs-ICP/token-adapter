@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "publish": "bash scripts/publish.sh"
+    "pump:patch": "npm version patch && npm publish --access public"
   },
   "keywords": [],
   "author": "Alpaca icp",

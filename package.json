@@ -20,9 +20,9 @@
     "typescript": "^5.5.2"
   },
   "dependencies": {
-    "@dfinity/agent": "^1.4.0",
-    "@dfinity/candid": "^1.4.0",
-    "@dfinity/principal": "^1.4.0"
+    "@dfinity/agent": "^2.0.0",
+    "@dfinity/candid": "^2.0.0",
+    "@dfinity/principal": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/Alpaca-Labs-ICP/token-adapter/issues"

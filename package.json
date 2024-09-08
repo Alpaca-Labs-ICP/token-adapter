@@ -1,6 +1,6 @@
 {
   "name": "@alpaca-icp/token-adapter",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "ICP token adapter",
   "main": "src/index.ts",
   "scripts": {

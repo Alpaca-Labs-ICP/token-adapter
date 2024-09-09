@@ -9,13 +9,7 @@ export class ExtToken implements IToken {
   public readonly actor: ExtActor;
   public readonly decimals: number = 1e8;
 
-  constructor({
-    canisterId,
-    agent,
-  }: {
-    canisterId: string;
-    agent: HttpAgent;
-  }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
     this.actor = EXT.createActor({
       agent,
       canisterId,
@@ -32,7 +26,6 @@ export class ExtToken implements IToken {
     expires_at: [] | [bigint];
     spender: { owner: Principal; subaccount: [] | [Uint8Array | number[]] };
   }): Promise<bigint> {
-    console.log("approve", input);
     throw new Error("Method not implemented.");
   }
 
@@ -44,12 +37,11 @@ export class ExtToken implements IToken {
     from_subaccount: [] | [Uint8Array | number[]];
     created_at_time: [] | [bigint];
   }): Promise<bigint> {
-    console.log("transfer", input);
     throw new Error("Method not implemented.");
   }
 
   async getDecimals(): Promise<number> {
-    const metadata = await this.actor.metadata()
+    const metadata = await this.actor.metadata();
     if ("ok" in metadata && "fungible" in metadata.ok) {
       return metadata.ok.fungible.decimals;
     } else {
@@ -80,7 +72,6 @@ export class ExtToken implements IToken {
     if ("ok" in metadata && "fungible" in metadata.ok) {
       return metadata.ok.fungible.symbol;
     } else if ("err" in metadata) {
-      console.log(metadata.err);
       throw new Error("error occured");
     }
     throw new Error("error occured");
@@ -88,7 +79,6 @@ export class ExtToken implements IToken {
   async totalSupply(): Promise<number> {
     const totalSupplyBigInt = await this.actor.supply();
     if ("err" in totalSupplyBigInt) {
-      console.log(totalSupplyBigInt.err);
       throw new Error("error occured");
     }
     if ("ok" in totalSupplyBigInt) {
@@ -100,7 +90,6 @@ export class ExtToken implements IToken {
   async getFee(): Promise<bigint> {
     const fee = await this.actor.getFee();
     if ("err" in fee) {
-      console.log(fee.err);
       throw new Error("error occured");
     }
     if ("ok" in fee) {

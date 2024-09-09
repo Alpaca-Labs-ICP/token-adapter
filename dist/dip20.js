@@ -13,7 +13,7 @@ exports.Dip20Token = void 0;
 const principal_1 = require("@dfinity/principal");
 const icp_1 = require("./icp");
 class Dip20Token {
-    constructor({ canisterId, agent, }) {
+    constructor({ canisterId, agent }) {
         this.decimals = 1e8;
         this.actor = icp_1.DIP20.createActor({
             agent,
@@ -21,11 +21,9 @@ class Dip20Token {
         });
     }
     approve(input) {
-        console.log("approve", input);
         throw new Error("Method not implemented.");
     }
     transfer(input) {
-        console.log("transfer", input);
         throw new Error("Method not implemented.");
     }
     getDecimals() {

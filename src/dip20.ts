@@ -9,13 +9,7 @@ export class Dip20Token implements IToken {
   public readonly actor: DIP20Actor;
   public readonly decimals: number = 1e8;
 
-  constructor({
-    canisterId,
-    agent,
-  }: {
-    canisterId: string;
-    agent: HttpAgent;
-  }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
     this.actor = DIP20.createActor({
       agent,
       canisterId,
@@ -32,7 +26,6 @@ export class Dip20Token implements IToken {
     expires_at: [] | [bigint];
     spender: { owner: Principal; subaccount: [] | [Uint8Array | number[]] };
   }): Promise<bigint> {
-    console.log("approve", input);
     throw new Error("Method not implemented.");
   }
 
@@ -44,7 +37,6 @@ export class Dip20Token implements IToken {
     from_subaccount: [] | [Uint8Array | number[]];
     created_at_time: [] | [bigint];
   }): Promise<bigint> {
-    console.log("transfer", input);
     throw new Error("Method not implemented.");
   }
 

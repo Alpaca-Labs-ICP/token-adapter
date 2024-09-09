@@ -21,10 +21,6 @@ const token_did_1 = require("./token.did");
  * description: Create actor instance
  */
 const createActor = ({ agent, canisterId, }) => {
-    // Fetch root key for certificate validation during development
-    if (process.env.NEXT_PUBLIC_DFX_NETWORK === "local") {
-        agent.fetchRootKey();
-    }
     // Creates an actor with using the candid interface and the HttpAgent
     return agent_1.Actor.createActor(token_did_1.idlFactory, {
         agent,

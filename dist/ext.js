@@ -13,7 +13,7 @@ exports.ExtToken = void 0;
 const principal_1 = require("@dfinity/principal");
 const icp_1 = require("./icp");
 class ExtToken {
-    constructor({ canisterId, agent, }) {
+    constructor({ canisterId, agent }) {
         this.decimals = 1e8;
         this.actor = icp_1.EXT.createActor({
             agent,
@@ -22,11 +22,9 @@ class ExtToken {
     }
     // TODO: Implement the following methods
     approve(input) {
-        console.log("approve", input);
         throw new Error("Method not implemented.");
     }
     transfer(input) {
-        console.log("transfer", input);
         throw new Error("Method not implemented.");
     }
     getDecimals() {
@@ -70,7 +68,6 @@ class ExtToken {
                 return metadata.ok.fungible.symbol;
             }
             else if ("err" in metadata) {
-                console.log(metadata.err);
                 throw new Error("error occured");
             }
             throw new Error("error occured");
@@ -80,7 +77,6 @@ class ExtToken {
         return __awaiter(this, void 0, void 0, function* () {
             const totalSupplyBigInt = yield this.actor.supply();
             if ("err" in totalSupplyBigInt) {
-                console.log(totalSupplyBigInt.err);
                 throw new Error("error occured");
             }
             if ("ok" in totalSupplyBigInt) {
@@ -93,7 +89,6 @@ class ExtToken {
         return __awaiter(this, void 0, void 0, function* () {
             const fee = yield this.actor.getFee();
             if ("err" in fee) {
-                console.log(fee.err);
                 throw new Error("error occured");
             }
             if ("ok" in fee) {

@@ -20,10 +20,10 @@ class Dip20Token {
             canisterId,
         });
     }
-    approve(input) {
+    approve(_input) {
         throw new Error("Method not implemented.");
     }
-    transfer(input) {
+    transfer(_input) {
         throw new Error("Method not implemented.");
     }
     getDecimals() {

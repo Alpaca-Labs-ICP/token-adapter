@@ -124,7 +124,7 @@ const idlFactory = ({ IDL }) => {
     });
 };
 exports.idlFactory = idlFactory;
-const init = ({ IDL }) => {
+const init = ({}) => {
     return [];
 };
 exports.init = init;

@@ -16,7 +16,7 @@ export class Dip20Token implements IToken {
     });
   }
 
-  approve(input: {
+  approve(_input: {
     fee: [] | [bigint];
     memo: [] | [Uint8Array | number[]];
     from_subaccount: [] | [Uint8Array | number[]];
@@ -29,7 +29,7 @@ export class Dip20Token implements IToken {
     throw new Error("Method not implemented.");
   }
 
-  transfer(input: {
+  transfer(_input: {
     to: { owner: Principal; subaccount: [] | [Uint8Array | number[]] };
     amount: bigint;
     fee: [] | [bigint];

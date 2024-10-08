@@ -124,6 +124,6 @@ export const idlFactory = ({ IDL }: any) => {
     txSize: IDL.Func([], [IDL.Nat64], []),
   });
 };
-export const init = ({ IDL }: any) => {
+export const init = ({}: any) => {
   return [];
 };

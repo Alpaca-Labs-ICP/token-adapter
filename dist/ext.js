@@ -21,10 +21,10 @@ class ExtToken {
         });
     }
     // TODO: Implement the following methods
-    approve(input) {
+    approve(_input) {
         throw new Error("Method not implemented.");
     }
-    transfer(input) {
+    transfer(_input) {
         throw new Error("Method not implemented.");
     }
     getDecimals() {

@@ -4,7 +4,7 @@
   "description": "ICP token adapter",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -b",
     "start": "node dist/index.js",
     "pump:patch": "npm version patch && npm publish --access public"
   },
@@ -17,7 +17,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.14.9",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "@dfinity/agent": "^2.0.0",

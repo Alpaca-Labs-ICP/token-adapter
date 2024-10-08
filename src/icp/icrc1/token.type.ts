@@ -1,6 +1,5 @@
 import type { Principal } from "@dfinity/principal";
 import type { ActorMethod } from "@dfinity/agent";
-import type { IDL } from "@dfinity/candid";
 
 export interface Account {
   owner: Principal;
@@ -29,8 +28,8 @@ export interface ApproveArgs {
 }
 export type ApproveError =
   | {
-    GenericError: { message: string; error_code: bigint };
-  }
+      GenericError: { message: string; error_code: bigint };
+    }
   | { TemporarilyUnavailable: null }
   | { Duplicate: { duplicate_of: bigint } }
   | { BadFee: { expected_fee: bigint } }
@@ -78,33 +77,33 @@ export interface CandidBlock {
 }
 export type CandidOperation =
   | {
-    Approve: {
-      fee: Tokens;
-      from: Uint8Array | number[];
-      allowance_e8s: bigint;
-      allowance: Tokens;
-      expected_allowance: [] | [Tokens];
-      expires_at: [] | [TimeStamp];
-      spender: Uint8Array | number[];
-    };
-  }
+      Approve: {
+        fee: Tokens;
+        from: Uint8Array | number[];
+        allowance_e8s: bigint;
+        allowance: Tokens;
+        expected_allowance: [] | [Tokens];
+        expires_at: [] | [TimeStamp];
+        spender: Uint8Array | number[];
+      };
+    }
   | {
-    Burn: {
-      from: Uint8Array | number[];
-      amount: Tokens;
-      spender: [] | [Uint8Array | number[]];
-    };
-  }
+      Burn: {
+        from: Uint8Array | number[];
+        amount: Tokens;
+        spender: [] | [Uint8Array | number[]];
+      };
+    }
   | { Mint: { to: Uint8Array | number[]; amount: Tokens } }
   | {
-    Transfer: {
-      to: Uint8Array | number[];
-      fee: Tokens;
-      from: Uint8Array | number[];
-      amount: Tokens;
-      spender: [] | [Uint8Array | number[]];
+      Transfer: {
+        to: Uint8Array | number[];
+        fee: Tokens;
+        from: Uint8Array | number[];
+        amount: Tokens;
+        spender: [] | [Uint8Array | number[]];
+      };
     };
-  };
 export interface CandidTransaction {
   memo: bigint;
   icrc1_memo: [] | [Uint8Array | number[]];
@@ -127,11 +126,11 @@ export interface GetBlocksArgs {
 }
 export type GetBlocksError =
   | {
-    BadFirstBlockIndex: {
-      requested_index: bigint;
-      first_valid_index: bigint;
-    };
-  }
+      BadFirstBlockIndex: {
+        requested_index: bigint;
+        first_valid_index: bigint;
+      };
+    }
   | { Other: { error_message: string; error_code: bigint } };
 export interface InitArgs {
   send_whitelist: Array<Principal>;
@@ -220,8 +219,8 @@ export interface TransferArgs {
 }
 export type TransferError =
   | {
-    GenericError: { message: string; error_code: bigint };
-  }
+      GenericError: { message: string; error_code: bigint };
+    }
   | { TemporarilyUnavailable: null }
   | { BadBurn: { min_burn_amount: bigint } }
   | { Duplicate: { duplicate_of: bigint } }
@@ -231,8 +230,8 @@ export type TransferError =
   | { InsufficientFunds: { balance: bigint } };
 export type TransferError_1 =
   | {
-    TxTooOld: { allowed_window_nanos: bigint };
-  }
+      TxTooOld: { allowed_window_nanos: bigint };
+    }
   | { BadFee: { expected_fee: Tokens } }
   | { TxDuplicate: { duplicate_of: bigint } }
   | { TxCreatedInFuture: null }
@@ -251,8 +250,8 @@ export interface TransferFromArgs {
 }
 export type TransferFromError =
   | {
-    GenericError: { message: string; error_code: bigint };
-  }
+      GenericError: { message: string; error_code: bigint };
+    }
   | { TemporarilyUnavailable: null }
   | { InsufficientAllowance: { allowance: bigint } }
   | { BadBurn: { min_burn_amount: bigint } }

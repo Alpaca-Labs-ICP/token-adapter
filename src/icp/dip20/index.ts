@@ -1,4 +1,4 @@
-import { Actor, HttpAgent } from "@dfinity/agent";
+import { Actor, Agent } from "@dfinity/agent";
 import { idlFactory } from "./token.did";
 import { _SERVICE as ActorType } from "./token.type";
 /**
@@ -8,10 +8,10 @@ export const createActor = ({
   agent,
   canisterId,
 }: {
-  agent: HttpAgent;
+  agent: Agent;
   canisterId: string;
 }): ActorType => {
-  // Creates an actor with using the candid interface and the HttpAgent
+  // Creates an actor with using the candid interface and the Agent
   return Actor.createActor(idlFactory, {
     agent,
     canisterId,

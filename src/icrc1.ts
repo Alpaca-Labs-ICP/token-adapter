@@ -2,7 +2,7 @@ import { Principal } from "@dfinity/principal";
 import { IToken } from "./types/IToken";
 import { ICRC1Actor } from "./types/TokenStandardActor";
 import { MetadataValue } from "./icp/icrc1";
-import { HttpAgent } from "@dfinity/agent";
+import { Agent } from "@dfinity/agent";
 import { ICRC1 } from "./icp";
 import { safeParseJSON } from "./utils/safeParseJSON";
 
@@ -10,7 +10,7 @@ export class ICRC1Token implements IToken {
   public readonly actor: ICRC1Actor;
   public readonly decimals: number = 1e8;
 
-  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: Agent }) {
     this.actor = ICRC1.createActor({
       agent,
       canisterId,

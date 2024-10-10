@@ -2,14 +2,14 @@ import { Principal } from "@dfinity/principal";
 import { IToken } from "./types/IToken";
 import { DIP20Actor } from "./types/TokenStandardActor";
 import { Metadata } from "./icp/dip20";
-import { HttpAgent } from "@dfinity/agent";
+import { Agent } from "@dfinity/agent";
 import { DIP20 } from "./icp";
 
 export class Dip20Token implements IToken {
   public readonly actor: DIP20Actor;
   public readonly decimals: number = 1e8;
 
-  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: Agent }) {
     this.actor = DIP20.createActor({
       agent,
       canisterId,

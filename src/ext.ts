@@ -2,14 +2,14 @@ import { Principal } from "@dfinity/principal";
 import { IToken } from "./types/IToken";
 import { ExtActor } from "./types/TokenStandardActor";
 import { Metadata } from "./icp/ext";
-import { HttpAgent } from "@dfinity/agent";
+import { Agent } from "@dfinity/agent";
 import { EXT } from "./icp";
 
 export class ExtToken implements IToken {
   public readonly actor: ExtActor;
   public readonly decimals: number = 1e8;
 
-  constructor({ canisterId, agent }: { canisterId: string; agent: HttpAgent }) {
+  constructor({ canisterId, agent }: { canisterId: string; agent: Agent }) {
     this.actor = EXT.createActor({
       agent,
       canisterId,

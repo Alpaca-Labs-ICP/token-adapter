@@ -8,9 +8,9 @@ Support `ICRC1` `ICRC2` `EXT` `DIP20`
 
 ```ts
 import { Token } from "@alpaca-icp/token-adapter";
-import { HttpAgent } from "@dfinity/agent";
+import { Agent } from "@dfinity/agent";
 
-const agent = new HttpAgent({ host: "https://ic0.app" });
+const agent = new Agent({ host: "https://ic0.app" });
 
 const token = new Token({
   canisterId: "ryjl3-tyaaa-aaaaa-aaaba-cai",

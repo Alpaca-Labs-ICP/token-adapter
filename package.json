@@ -5,6 +5,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.esm",
   "scripts": {
+    "prebuild": "rm -rf dist",
     "build": "tsc -b && rollup -c --bundleConfigAsCjs",
     "start": "node dist/index.js",
     "pump:patch": "npm version patch && npm publish --access public"

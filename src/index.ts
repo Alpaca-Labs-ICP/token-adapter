@@ -5,6 +5,10 @@ import { ExtToken } from "./ext";
 import { Principal } from "@dfinity/principal";
 import { Agent } from "@dfinity/agent";
 
+export * from "./dip20";
+export * from "./icrc1";
+export * from "./ext";
+
 export type TokenStandard = "DIP20" | "ICRC1" | "EXT" | "ICRC2" | "ICP";
 export class Token {
   private token: IToken;

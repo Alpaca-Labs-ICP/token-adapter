@@ -4,7 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
 
 export default {
-  input: "src/index.ts", // Entry point of your library
+  input: "index.ts", // Entry point of your library
   output: [
     {
       dir: "dist", // Output directory

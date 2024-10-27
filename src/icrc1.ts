@@ -16,6 +16,11 @@ export class ICRC1Token implements IToken {
       canisterId,
     });
   }
+  async supportedStandards(): Promise<string[]> {
+    const standards = await this.actor.icrc1_supported_standards();
+    return standards.map((standard) => standard.name);
+  }
+
   async approve(input: {
     fee: [bigint] | [];
     memo: [] | [Uint8Array | number[]];

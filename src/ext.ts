@@ -15,6 +15,9 @@ export class ExtToken implements IToken {
       canisterId,
     });
   }
+  async supportedStandards(): Promise<string[]> {
+    return ["EXT"];
+  }
   // TODO: Implement the following methods
   approve(_input: {
     fee: [] | [bigint];

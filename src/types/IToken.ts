@@ -13,7 +13,7 @@ export type ApproveInput = {
     owner: Principal;
     subaccount: [] | [Uint8Array | number[]];
   };
-}
+};
 
 export type TransferInput = {
   to: {
@@ -25,8 +25,7 @@ export type TransferInput = {
   memo: [Uint8Array | number[]] | [];
   from_subaccount: [] | [Uint8Array | number[]];
   created_at_time: [bigint] | [];
-}
-
+};
 
 export interface IToken {
   actor: TokenActor;
@@ -35,9 +34,9 @@ export interface IToken {
     address:
       | string
       | {
-        owner: Principal;
-        subaccount: [] | [Uint8Array | number[]];
-      }
+          owner: Principal;
+          subaccount: [] | [Uint8Array | number[]];
+        }
   ): Promise<number>;
   name(): Promise<string>;
   symbol(): Promise<string>;
@@ -46,11 +45,12 @@ export interface IToken {
   getMetadata(): Promise<any>;
   getLogo(): Promise<string>;
   /**
-   * 
+   *
    *  @description This method only work with EXT, ICRC2+ and DIP20 tokens
    */
   approve(input: ApproveInput): Promise<bigint>;
 
   getFee(): Promise<bigint>;
   transfer(input: TransferInput): Promise<bigint>;
+  supportedStandards(): Promise<string[]>;
 }

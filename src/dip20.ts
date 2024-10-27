@@ -15,6 +15,9 @@ export class Dip20Token implements IToken {
       canisterId,
     });
   }
+  async supportedStandards(): Promise<string[]> {
+    return ["DIP20"];
+  }
 
   approve(_input: {
     fee: [] | [bigint];

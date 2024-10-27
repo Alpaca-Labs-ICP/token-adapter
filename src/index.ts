@@ -60,6 +60,10 @@ export class Token {
     return this.token.balanceOf(address);
   }
 
+  public async supportedStandards(): Promise<string[]> {
+    return this.token.supportedStandards();
+  }
+
   public async name(): Promise<string> {
     return this.token.name();
   }

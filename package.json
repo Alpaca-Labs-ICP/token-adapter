@@ -1,6 +1,6 @@
 {
   "name": "@alpaca-icp/token-adapter",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "ICP token adapter",
   "main": "dist/index.cjs",
   "module": "dist/index.esm",

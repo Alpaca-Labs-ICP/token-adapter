@@ -24,6 +24,7 @@
     "@rollup/plugin-typescript": "^12.1.0",
     "@types/node": "^20.14.9",
     "tslib": "^2.7.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.5.2"
   },
   "dependencies": {
